@@ -3,7 +3,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-
 // Database: MongoDB
 
 
@@ -13,7 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // Use: Static Files
+app.post('/', users.addUsers, ()=>{
 
+})
 // Express: Port
 const PORT = 4000 || process.env;
 
