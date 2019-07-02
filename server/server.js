@@ -12,9 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // Use: Static Files
-app.post('/', users.addUsers, ()=>{
 
-})
 // Express: Port
 const PORT = 4000 || process.env;
 
