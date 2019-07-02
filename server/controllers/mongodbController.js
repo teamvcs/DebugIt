@@ -1,27 +1,21 @@
 // Imports: Dependencies
-import mongoose from 'mongoose';
+const { User } = require('./../../db/dbModel');
 import mongoDatabase from '../database/mongodb';
 
 // MongoDB Queries
 
 const queries = {
-    findUser : () => {
-    },
-    addUser : () => {
-
-    },
-    deleteUser = () => {
-
-    }
-
-    const updateUser = () => {
-
-    }
+    findUser : () => {},
+    addUser : (req,res)=>{
+        const { user_id, username, password } = req.body;
+        User.Create({
+            user_id,
+            username,
+            password
+        }, (err))
+    }, 
+    deleteUser = () => {},
+    updateUser = () => {}
 }
 
-module.exports = {
-    findUser,
-    addUser,
-    deleteUser,
-    updateUser
-}
+module.exports = queries;
