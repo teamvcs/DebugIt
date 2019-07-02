@@ -1,20 +1,33 @@
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const authController = {
+
   bCryptPassword = (req, res, next) => {
-    const { username, password } = req.body;
-    // encrypts the password
-    // passes on the username and encrypted password
-    // to signup middleware
+    const { userName, plainTextPassword } = req.body;
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+      if (err) {
+        res.status(424).json({
+          msg: 'Error storing password', userSignedUp: false,
+        });
+      }
+      // pass userName and hashedPassword to MongoDB
+      req.body.hashedPassword = hash; 
+    });
+    next()
   },
 
   verifyPassword = (req, res, next) => {
-    const { username, password } = req.body;
-    // decrypts username with bcrypt
-    // checks database for doc with username / decrypted password
-    // if err
-      // send error message in response
-    // passes on the username and something else?
-    // to login middleware O
+    const { username, plainTextPassword } = req.body;
+    // get hash from MongoDB
+    bcrypt.compare(plainTextPassword, hash, function(err, res) {
+      if (err) {
+        res.status(424).json({
+          msg: 'Error checking password', userSignedIn: false,
+        });
+      }
+    });
+    next();
   },
   
 }
