@@ -1,10 +1,10 @@
 // Imports: Dependencies
-const { User } = require('../../db/schema');
-// import mongoDatabase from '../database/mongodb';
+const { User, Problem } = require('../../db/schema');
+
 
 // MongoDB Queries
 
-const queries = {
+const users = {
     // findUser : () => {},
     addUser : (req,res)=>{
         const { user_id, username, password } = req.body;
@@ -15,8 +15,16 @@ const queries = {
             password
         }, (err))
     }, 
+
     // deleteUser = () => {},
+
     // updateUser = () => {}
 }
 
-module.exports = queries;
+const problems = {
+
+}
+
+module.exports = users;
+module.exports = problem;
+

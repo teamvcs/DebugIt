@@ -2,8 +2,6 @@
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
-const { queries } = require('./controllers/mongodbController');
-
 const app = express();
 
 // Database: MongoDB
