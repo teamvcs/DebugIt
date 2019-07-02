@@ -3,18 +3,25 @@ import mongoose from 'mongoose';
 import mongoDatabase from '../database/mongodb';
 
 // MongoDB Queries
-export default findUser = () => {
 
+const queries = {
+    findUser : () => {
+    },
+    addUser : () => {
+
+    },
+    deleteUser = () => {
+
+    }
+
+    const updateUser = () => {
+
+    }
 }
 
-export default addUser = () => {
-  
-}
-
-export default deleteUser = () => {
-  
-}
-
-export default updateUser = () => {
-  
+module.exports = {
+    findUser,
+    addUser,
+    deleteUser,
+    updateUser
 }
