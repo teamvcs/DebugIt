@@ -1,8 +1,8 @@
 const User = require('./../db/dbmodels');
 
 const addUser = (req,res) => {
-  const {task, created_At} = req.body;
-  User.create({username: task, password: created_At}, (error,result)=>{
+  const {username, password} = req.body;
+  User.create({username: username, password: password}, (error,result)=>{
   if(error){
     console.error(error);
   }
