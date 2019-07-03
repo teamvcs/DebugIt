@@ -85,7 +85,6 @@ const authController = {
     oauth2Client.getToken(code)
       .then(response => {
         const { tokens } = response;
-        console.log('tokens: ', tokens);
         oauth2Client.setCredentials(tokens);
         let decodedJwt = jwtDecode(tokens.id_token);
         const { email } = decodedJwt;
