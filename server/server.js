@@ -6,10 +6,12 @@ const path = require('path');
 const cors = require('cors');
 const PORT = 3000;
 
+const authController = require('./controllers/authController')
 const { addUser } = require('./controllers/userController');
 const { bCryptPassword, verifyPassword } = require('./controllers/authController');
 
 const app = express();
+// const addUser = require('./controllers/dbControlller');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,15 +30,21 @@ app.get('/', (req, res, next) => {
 
 app.get('/login', verifyPassword, (req, res, next) => {
   console.log("I am passed!")
-  // res.json(res.locals.user);
 })
 
 app.post('/signup', bCryptPassword, addUser, (req, res, next) => {
   res.json(res.locals.user);
 })
 
-app.get('/problem:ID', (req, res, next) => {
-  // do stuff
+// auth testing
+app.get('/google-init', authController.OAuthGetCode);
+app.get('/google-homepage', authController.OAuthGetToken, (req, res) => {
+  console.log('made it to google homepage, email: ', res.locals.email);
+  res.redirect('/homepage/')
+});
+
+app.get('/homepage/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 })
 
 app.listen(PORT, () => {

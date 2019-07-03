@@ -1,4 +1,4 @@
-const User = require('./../db/dbmodels');
+// const User = require('./../db/dbmodels');
 
 // const addUser = (req,res) => {
 //   const {username, password} = req.body;
@@ -11,4 +11,4 @@ const User = require('./../db/dbmodels');
 //   })
 // }
 
-module.exports = addUser;
+// module.exports = addUser;
