@@ -10,14 +10,9 @@ const App = () => {
 
   return (
     <div id="main">
-<<<<<<< HEAD
-      rendering app gobbeldygook
-      </div>
-=======
       <FormContainer />
       <ProblemPageContainer />
     </div>
->>>>>>> 49c5c63421c6ad6a99d80a4fdcf211648341c261
   );
 }
 
