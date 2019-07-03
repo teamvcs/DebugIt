@@ -1,24 +1,28 @@
-// Imports: Dependencies
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
+const path = require('path');
 const app = express();
-// Database: MongoDB
+const addUser = require('./controllers/dbControlller');
 
 
-// Middleware: CORS
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-// Use: Static Files
-app.post('/', users.addUsers, ()=>{
-
+app.get('/', (req,res)=>{
+  res.set({'Content-Type': 'text/html'})
+  .status(200)
+  .sendFile(path.join(__dirname, './../client/dist/index.html'))
 })
-// Express: Port
+
+app.post('/', addUser, (req,res)=>{
+  
+})
+
 const PORT = 4000 || process.env;
 
-// Express: Listener
+
 app.listen(PORT, () => {
   console.log(`The server has started on port: ${PORT}`);
   console.log(`http://localhost:${PORT}`);
