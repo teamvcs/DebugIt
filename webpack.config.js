@@ -1,12 +1,12 @@
 // Imports: Dependencies
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 // Webpack Configuration
 module.exports = {
   // Entry
-  entry: './client/src/index.jsx',
+  entry: ['babel-polyfill', './client/src/index.jsx'],
   // Output
   output: {
     path: path.resolve(__dirname, './client/dist'),
@@ -22,7 +22,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-        }
+        },
       },
       // CSS Files
       {
@@ -37,11 +37,11 @@ module.exports = {
     ],
   },
   // Plugins
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './client/public/index.html',
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: './client/public/index.h',
+  //   }),
+  // ],
   // Reload On File Change
   watch: true,
   // Development Tools (Map Errors To Source File)
