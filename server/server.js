@@ -1,39 +1,55 @@
 // Imports: Dependencies
-const cors = require('cors');
-
-const bodyParser = require('body-parser');
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const cors = require('cors');
+const PORT = 3000;
 
 const authController = require('./controllers/authController')
+const { addUser } = require('./controllers/userController');
+const { bCryptPassword, verifyPassword } = require('./controllers/authController');
 
 const app = express();
 
-// Database: MongoDB
-
-
-// Middleware: CORS
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors());
 
-// Use: Static Files
+// Serve Static Files
+app.use(express.static(path.join(__dirname, '../client/public')));
 
+// initial load
+app.get('/', (req, res, next) => {
+  res.set('Content-Type', 'index/html')
+    .status(200)
+    .sendFile(path.join(__dirname, '../client/dist/index.html'));
+})
+
+app.get('/login', verifyPassword, (req, res, next) => {
+  console.log("I am passed!")
+  // res.json(res.locals.user);
+})
+
+app.post('/signup', bCryptPassword, addUser, (req, res, next) => {
+  res.json(res.locals.user);
+})
 
 // auth testing
 app.get('/google-init', authController.OAuthGetCode);
-app.get('/problem', authController.OAuthGetToken, (req, res) => {
-  console.log('res.locals.email: ', res.locals.email)
-  res.status(200)
-  res.send('/problem/1')
+app.get('/google-homepage', authController.OAuthGetToken, (req, res) => {
+  console.log('made it to google homepage, email: ', res.locals.email);
+  res.redirect('/homepage/')
 });
 
-// Express: Port
-const PORT = 4000 || process.env;
+app.get('/homepage/', (req, res, next) => {
+  console.log('made it to homepage');
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+})
 
-// Express: Listener
 app.listen(PORT, () => {
-  console.log(`The server has started on port: ${PORT}`);
-  console.log(`http://localhost:${PORT}`);
+  console.log(`The server has been started at http://localhost:${PORT}`);
 });
 
 module.exports = app;
