@@ -2,8 +2,8 @@ export const problems = {
     0: {
         level: `Easy`,
         prompt: `
-        //Implement this simple add function:
-
+        //Implement this simple add function:`,
+        wrongAnswer:`
         function addNums(num1,num2){
         return nu1 + num2;
         }`,
@@ -15,9 +15,9 @@ export const problems = {
     1: {
         level: `Intermediate`,
         prompt: `
-        //user is trying to make a button component:
-    
-        import React, { Component } from 'react';
+        //user is trying to make a button component:`,
+        wrongAnswer:`
+        import React,  Component } from 'react';
 
         const ButtonComponent = () => {
             return (
@@ -26,12 +26,10 @@ export const problems = {
             </div>
             );
         };
-        export default ButtonComponent;
+        export {ButtonComponent};
         `,
         correctAnswer: `
         import React, { Component } from 'react';
-        import styled from 'styled-components';
-
 
         const ButtonComponent = () => {
             return (
@@ -46,8 +44,8 @@ export const problems = {
     2: {
         level: `hard`,
         prompt: `
-        //Write a function that sorts an array using the bubble sort algorithm:
-
+        //Write a function that sorts an array using the bubble sort algorithm:`,
+        wrongAnswer:`
         const sorter = (array, a, b) => {
             const temp = array[a];
             array[a] = array[b];

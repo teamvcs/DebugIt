@@ -5,8 +5,7 @@ mongoose.connect('mongodb+srv://teamtesting:sG7XyjEPaYbZ3sez@gql-practice-pfkjl.
 const UserSchema = new Schema({
   username: {type: String, required: true},
   password: {type: String, required: true},
-  score: {type: Number},
-  current_problem: { problem_id: {type: Number}},
+  score: {type: Number, required: true},
 });
 
 const ProblemSchema = new Schema({
@@ -16,4 +15,8 @@ const ProblemSchema = new Schema({
 });
 
 
-module.exports = {UserSchema, ProblemSchema, mongoose};
+module.exports = {
+  UserSchema, 
+  // ProblemSchema, 
+  // mongoose
+};
