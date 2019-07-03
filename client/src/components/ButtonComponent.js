@@ -7,7 +7,6 @@ const ButtonComponent = () => {
       ButtonComponent
     </div>
   );
-
 };
 
 export default ButtonComponent;

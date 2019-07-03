@@ -11,6 +11,7 @@ const { addUser } = require('./controllers/userController');
 const { bCryptPassword, verifyPassword } = require('./controllers/authController');
 
 const app = express();
+// const addUser = require('./controllers/dbControlller');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

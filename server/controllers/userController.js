@@ -9,7 +9,8 @@ const userController = {
       const { username, hashedPassword } = req.body;
       User.create({
         username: username,
-        password: hashedPassword
+        password: hashedPassword,
+        score: 0
       }).then(user => {
         res.locals.user = user;
         next();
