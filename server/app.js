@@ -47,5 +47,10 @@ app.get('/homepage/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
+app.get('/problem', displayProblems, openCurrentProblem, (req, res, next) => {
+  // pass current problem to front end (prompt and ready solution)
+
+  // pass the problems that user solved/didn't solve
+})
 
 module.exports = app;
