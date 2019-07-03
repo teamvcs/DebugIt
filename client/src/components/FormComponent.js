@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-const FormComponent = () => {
+class FormComponent extends Component {
 
-  return (
-    <div>
-      Form Component
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        FormComponent
+      </div >
+    )
+  }
 
 };
 
