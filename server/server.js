@@ -29,7 +29,6 @@ app.get('/', (req, res, next) => {
 
 app.get('/login', verifyPassword, (req, res, next) => {
   console.log("I am passed!")
-  // res.json(res.locals.user);
 })
 
 app.post('/signup', bCryptPassword, addUser, (req, res, next) => {
@@ -44,7 +43,6 @@ app.get('/google-homepage', authController.OAuthGetToken, (req, res) => {
 });
 
 app.get('/homepage/', (req, res, next) => {
-  console.log('made it to homepage');
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 })
 
