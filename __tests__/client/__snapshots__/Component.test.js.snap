@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atomic Components Button Component should sucessfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Atomic Components Error Message Component should sucessfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Atomic Components Form Component should sucessfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Atomic Components Problem Description Component should sucessfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Molecular Components Form Container should sucessfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Molecular Components Problem Container should successfully render to the DOM 1`] = `ShallowWrapper {}`;
+
+exports[`Molecular Components Problem Page Container should successfully render to the DOM 1`] = `ShallowWrapper {}`;
