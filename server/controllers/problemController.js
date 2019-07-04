@@ -1,18 +1,14 @@
 // connect to db
-const Problem = require('../db/dbmodels');
+
+// const Problem = require('../db/dbmodels');
 const User = require('../db/dbmodels');
+const problems = require('../db/ProblemStore');
 
 const problemController = {
 
-  displayProblems: (req, res, next) => {
-    // should get it from frontend (fetch request)
-    const { username, problemsSolved } = req.body;
-
-
-  },
-
-  openCurrentProblem: (req, res, next) => {
-
+  displayProblem: (req, res, next) => {
+    const { score } = req.params;
+    res.json(JSON.parse(JSON.stringify(problems[score])));
   }
 
 }

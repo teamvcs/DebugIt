@@ -9,6 +9,7 @@ const PORT = 3000;
 const authController = require('./controllers/authController');
 const { addUser } = require('./controllers/userController');
 const { bCryptPassword, verifyPassword } = require('./controllers/authController');
+const { displayProblem } = require('./controllers/problemController');
 
 const app = express();
 // const addUser = require('./controllers/dbControlller');
@@ -25,11 +26,11 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 app.get('/', (req, res, next) => {
   res.set('Content-Type', 'index/html')
     .status(200)
-    .sendFile(path.join(__dirname, '../client/dist/index.html'));
+    .sendFile(path.join(__dirname, '../index.html'));
 });
 
 app.get('/login', verifyPassword, (req, res, next) => {
-  console.log('I am passed!');
+  res.json(res.locals.user);
 });
 
 app.post('/signup', bCryptPassword, addUser, (req, res, next) => {
@@ -43,14 +44,13 @@ app.get('/google-homepage', authController.OAuthGetToken, (req, res) => {
   res.redirect('/homepage/');
 });
 
-app.get('/homepage/', (req, res, next) => {
+app.get('/homepage', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.get('/problem', displayProblems, openCurrentProblem, (req, res, next) => {
-  // pass current problem to front end (prompt and ready solution)
 
-  // pass the problems that user solved/didn't solve
-})
+// id at this point will be score from User object
+app.get('/problem/:id', displayProblem);
+
 
 module.exports = app;

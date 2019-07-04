@@ -6,10 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Webpack Configuration
 module.exports = {
   // Entry
-  entry: './client/src/index.jsx',
+  entry: path.join(__dirname, 'client', 'src/index.jsx'),
   // Output
   output: {
-    path: path.resolve(__dirname, './client/dist'),
+    path: path.resolve(__dirname, 'client', 'dist'),
     filename: 'bundle.js',
   },
   // Loaders

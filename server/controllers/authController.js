@@ -57,6 +57,7 @@ const authController = {
             });
           }
           if (response) {
+            res.locals.user = user;
             next();
           } else {
             res.end('Password is not correct');

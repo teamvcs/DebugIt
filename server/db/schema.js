@@ -10,7 +10,7 @@ const UserSchema = new Schema({
 });
 
 const ProblemSchema = new Schema({
-  _id: { type: Number },
+  id: { type: Number },
   prompt: { type: String, required: true },
   completed: { type: Boolean },
 });
@@ -18,6 +18,5 @@ const ProblemSchema = new Schema({
 
 module.exports = {
   UserSchema,
-  // ProblemSchema,
-  // mongoose
+  ProblemSchema,
 };
