@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const cors = require('cors');
 
-const PORT = 3000;
-
 const authController = require('./controllers/authController');
 const { addUser } = require('./controllers/userController');
 const { bCryptPassword, verifyPassword } = require('./controllers/authController');

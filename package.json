@@ -2,12 +2,12 @@
   "name": "debug-it",
   "version": "2.0.0",
   "description": "",
-  "main": "index.jsx",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "dev": "webpack-dev-server --mode development --progress --hot=true --open",
-    "server": "nodemon --exec babel-node ./server/server.js",
-    "build": "webpack --mode development --progress --config webpack.config.js",
+    "start": "parcel ./client/public/index.html",
+    "dev": "parcel ./client/public/index.html",
+    "server": "nodemon ./server/server.js",
+    "build": "parcel build ./client/public/index.html",
     "test": "jest --verbose "
   },
   "repository": {
@@ -38,6 +38,7 @@
     "jwt-decode": "^2.2.0",
     "kleur": "^3.0.3",
     "mongoose": "^5.3.7",
+    "parcel-bundler": "^1.12.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^6.0.1",
