@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const cors = require('cors');
 
-const PORT = 3000;
-
 const authController = require('./controllers/authController');
 const { addUser } = require('./controllers/userController');
 const { bCryptPassword, verifyPassword } = require('./controllers/authController');
@@ -47,10 +45,10 @@ app.get('/homepage/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.get('/problem', displayProblems, openCurrentProblem, (req, res, next) => {
-  // pass current problem to front end (prompt and ready solution)
+// app.get('/problem', displayProblems, openCurrentProblem, (req, res, next) => {
+//   // pass current problem to front end (prompt and ready solution)
 
-  // pass the problems that user solved/didn't solve
-})
+//   // pass the problems that user solved/didn't solve
+// })
 
 module.exports = app;

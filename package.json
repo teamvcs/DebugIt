@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "dev": "webpack-dev-server --mode development --progress --hot=true --open",
-    "server": "nodemon --exec babel-node ./server/server.js",
-    "build": "webpack --mode development --progress --config webpack.config.js",
-    "test": "jest"
+    "start": "parcel ./client/public/index.html",
+    "dev": "parcel ./client/public/index.html",
+    "server": "nodemon ./server/server.js",
+    "build": "parcel build ./client/public/index.html",
+    "test": "jest --verbose "
   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "author": "Ariel Hyman, Joel Rivera, Alena Budzko, Jake Douglas, Rodolfo Guzman",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/teamvcs/DebugIt"
   },
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "bcrypt": "^3.0.6",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
@@ -38,12 +38,12 @@
     "jwt-decode": "^2.2.0",
     "kleur": "^3.0.3",
     "mongoose": "^5.3.7",
+    "parcel-bundler": "^1.12.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-redux": "^7.1.0",
+    "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1",
-    "supertest": "^4.0.2"
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -66,6 +66,7 @@
     "nodemon": "^1.18.5",
     "redux-devtools": "^3.5.0",
     "style-loader": "^0.23.1",
+    "supertest": "^4.0.2",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.7.2"
