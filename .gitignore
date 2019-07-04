@@ -1,10 +1,10 @@
 node_modules
 package-lock.json
 .env
-client/dist/bundle.js
-client/dist/index.html
+./client/dist/bundle.js
+./client/dist/index.html
 .DS_Store
 .cache
 dist
-.client/dist
+webpack.config.js
 
