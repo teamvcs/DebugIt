@@ -2,6 +2,7 @@
 import React from 'react';
 import FormContainer from './containers/FormContainer';
 import ProblemPageContainer from './containers/ProblemPageContainer';
+import LandingPageContainer from './containers/LandingPageContainer';
 
 // Imports: Components
 
@@ -12,6 +13,7 @@ const App = () => {
     <div id="main" className="App">
       <FormContainer />
       <ProblemPageContainer />
+      <LandingPageContainer />
     </div>
   );
 }
