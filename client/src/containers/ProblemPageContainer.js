@@ -5,8 +5,7 @@ import ErrorMessageComponent from '../components/ErrorMessageComponent';
 const ProblemPageContainer = () => {
 
   return (
-    <div>
-      <h4>Problem Page Container rendering:</h4>
+    <div className="ProblemPageContainer">
       <ErrorMessageComponent />
       <ProblemContainer />
     </div>

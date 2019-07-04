@@ -6,12 +6,15 @@ import ProblemPageContainer from './containers/ProblemPageContainer';
 // Imports: Components
 
 // React Application
-const App = () => (
-  <div id="main">
-    <FormContainer />
-    <ProblemPageContainer />
-  </div>
-);
+const App = () => {
+
+  return (
+    <div id="main" className="App">
+      <FormContainer />
+      <ProblemPageContainer />
+    </div>
+  );
+}
 
 // Exports
 export default App;

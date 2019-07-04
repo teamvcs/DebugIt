@@ -1,2 +1,4 @@
 export const ADD_USER = 'ADD_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const SAVE_QUESTIONS_TO_STATE = 'SAVE_QUESTIONS_TO_STATE';
+export const CHECK_ANSWER = 'CHECK_ANSWER';

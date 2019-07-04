@@ -4,7 +4,8 @@ const ProblemDescriptionComponent = () => {
 
   return (
     <div>
-      ProblemDescriptionComponent
+      <p>The problem you need to fix is something big</p>
+
     </div>
   );
 

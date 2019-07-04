@@ -33,7 +33,7 @@ class FormComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="FormComponent">
         <form onSubmit={this.handleSubmit}>
           <label>
             Username:
