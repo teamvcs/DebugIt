@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userSignUp, userLogIn } from '../redux/actions/userAction';
+import { Link } from 'react-router-dom';
 
 
 class FormComponent extends Component {
@@ -10,10 +11,9 @@ class FormComponent extends Component {
       username: "",
       password: ""
     };
-
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
   }
 
   handleChange(e) {
@@ -22,19 +22,29 @@ class FormComponent extends Component {
     })
   }
 
-  handleSubmit(e) {
+  handleLogIn(e) {
     e.preventDefault();
     let user = {
       username: this.state.username,
       password: this.state.password
     }
-    this.props.signUpAction(user)
+    this.props.userLogIn(user)
+  }
+
+  handleSignUp(e) {
+    e.preventDefault();
+    let user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.props.userSignUp(user)
   }
 
   render() {
     return (
       <div className="FormComponent">
-        <form onSubmit={this.handleSubmit}>
+        <form className="form-style-5">
+          <legend> Sign up / Sign in </legend>
           <label>
             Username:
           <input
@@ -47,18 +57,33 @@ class FormComponent extends Component {
           <label>
             Password:
           <input
-              type="password"
+              type="text"
               placeholder="Password"
               name="password"
               value={this.state.value}
-              onChange={this.handleChange} />
+              onChange={this.handleChange}
+            />
           </label>
           <input
             type="submit"
-            value="Submit"
+            value="SignUp"
+            onClick={this.handleSignUp}
           />
+          <input
+            type="submit"
+            value="SignIn"
+            onClick={this.handleLogIn}
+          />
+          <a href='http://localhost:3000/google-init'>
+            <img
+              className="googleButton"
+              src="https://coderwall-assets-0.s3.amazonaws.com/uploads/picture/file/4314/download.png"
+              type="submit"
+              value="SignIn"
+            />
+          </a>
         </form>
-      </div >
+      </div>
     )
   }
 
@@ -71,7 +96,8 @@ const mapStateToProps = ({ userReducer }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUpAction: (user) => dispatch(userSignUp(user)),
+    userSignUp: (user) => dispatch(userSignUp(user)),
+    userLogIn: (user) => dispatch(userLogIn(user)),
     // Dispatch your actions
   }
 };

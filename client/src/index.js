@@ -3,6 +3,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 // Imports: CSS
 import './styles.css';
@@ -19,8 +20,10 @@ const store = createStore(allReducers, composeEnhancers);
 
 // Render App
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('app'),
 );
