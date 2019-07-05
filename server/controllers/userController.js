@@ -15,6 +15,7 @@ const userController = {
       res.locals.user = user;
       next();
     }).catch(err => console.error('The error in adding new user to DB'));
+    return res.locals.user;
   },
 };
 
