@@ -6,10 +6,11 @@ const problems = require('../db/ProblemStore');
 
 const problemController = {
 
-  displayProblem: (req, res, next) => {
-    const { score } = req.params;
-    res.json(JSON.parse(JSON.stringify(problems[score])));
-  }
+//   displayProblem: (req, res, next) => {
+//     const { score } = req.params;
+//     res.redirect('/problem');
+//     res.json(JSON.parse(JSON.stringify(problems[score])));
+//   }
 
 }
 

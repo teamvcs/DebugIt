@@ -29,26 +29,28 @@ app.get('/', (req, res, next) => {
 
 app.get('/login', verifyPassword, (req, res, next) => {
   res.json(res.locals.user);
+  res.redirect('/problem');
 });
 
 app.post('/signup', bCryptPassword, addUser, (req, res, next) => {
   res.json(res.locals.user);
+  req.redirect('/problem');
 });
 
 // auth testing
 app.get('/google-init', authController.OAuthGetCode);
 app.get('/google-homepage', authController.OAuthGetToken, (req, res) => {
   console.log('made it to google homepage, email: ', res.locals.email);
-  res.redirect('/homepage/');
+  res.redirect('/problem/');
 });
 
 app.get('/homepage', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 
 // id at this point will be score from User object
-app.get('/problem/:id', displayProblem);
+app.get('/problem', displayProblem);
 
 
 module.exports = app;

@@ -2,7 +2,7 @@
 import React from 'react';
 import FormContainer from './containers/FormContainer';
 import ProblemPageContainer from './containers/ProblemPageContainer';
-import LandingPageContainer from './containers/LandingPageContainer';
+import { Route } from 'react-router-dom';
 
 // Imports: Components
 
@@ -11,9 +11,8 @@ const App = () => {
 
   return (
     <div id="main" className="App">
-      <FormContainer />
-      <ProblemPageContainer />
-      <LandingPageContainer />
+      <Route exact path='/' component={FormContainer}/>
+      <Route path='/problem' component={ProblemPageContainer}/>
     </div>
   );
 }
