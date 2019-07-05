@@ -1,56 +1,45 @@
 const request = require('supertest');
 const app = require('../../server/app');
 
-// expect all endpoints to return a status code of 200
-
-describe('Test each endpoint', () => {
-  it('From test: It should fail with a status  of 404', async () => {
+describe('Test each endpoint:', () => {
+  it('/Test: Should fail with a status  of 404', () => {
     request(app)
       .get('/test')
       .expect(404);
   });
 
-
-  it('From root: It should send a status code of 200', () => {
+  it('/: Should send a status code of 200', () => {
     request(app)
       .get('/')
       .expect(200);
   });
-  it('From login:  ', () => {
+
+  it('/login: Should send a status code of 200 ', () => {
     request(app)
       .get('/login')
       .expect(200);
   });
-  it('From signup:  ', () => {
+  it('/signup: Should send a status code of 200 ', () => {
     request(app)
       .get('/signup')
       .expect(200);
   });
 
-  it('From google-init:  ', () => {
+  it('/google-init: Should send a status code of 200 ', () => {
     request(app)
       .get('/google-init')
       .expect(200);
   });
-  it('From google-homepage:  ', () => {
+
+  it('/google-homepage: Should send a status code of 200 ', () => {
     request(app)
       .get('/google-homepage')
       .expect(200);
   });
-  it('From homepage:  ', () => {
+
+  it('/homepage: Should send a status code of 200 ', () => {
     request(app)
       .get('/homepage')
       .expect(200);
   });
 });
-
-
-// describe('Test each user....', () => {
-//   test('It should send a status code of 200 after asynchronously validating a user', async (done) => {
-//     const response = request(app).get('/login');
-//     response.then((res) => {
-//       expect(res.statusCode).toBe(200);
-//       done();
-//     });
-//   });
-// });
