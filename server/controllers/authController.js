@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const axios = require('axios');
+
 const saltRounds = 10;
 const { google } = require('googleapis');
 const jwtDecode = require('jwt-decode');
@@ -71,6 +72,7 @@ const authController = {
     axios
       .get(url)
       .then((response) => {
+        console.log(response.data);
         res.send(response.data);
       })
       .catch((error) => {

@@ -4,9 +4,43 @@ const app = require('../../server/app');
 // expect all endpoints to return a status code of 200
 
 describe('Test each endpoint', () => {
-  it('It should send a status code of 200 from making a get request to the root endpoint', async () => {
-    const result = await request(app).get('/');
-    expect(result.statusCode).toEqual(200);
+  it('From test: It should fail with a status  of 404', async () => {
+    request(app)
+      .get('/test')
+      .expect(404);
+  });
+
+
+  it('From root: It should send a status code of 200', () => {
+    request(app)
+      .get('/')
+      .expect(200);
+  });
+  it('From login:  ', () => {
+    request(app)
+      .get('/login')
+      .expect(200);
+  });
+  it('From signup:  ', () => {
+    request(app)
+      .get('/signup')
+      .expect(200);
+  });
+
+  it('From google-init:  ', () => {
+    request(app)
+      .get('/google-init')
+      .expect(200);
+  });
+  it('From google-homepage:  ', () => {
+    request(app)
+      .get('/google-homepage')
+      .expect(200);
+  });
+  it('From homepage:  ', () => {
+    request(app)
+      .get('/homepage')
+      .expect(200);
   });
 });
 
